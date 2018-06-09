@@ -18,6 +18,7 @@ Load plugin in bootstrap.php
 
 ```php
 Plugin::load('Cakeminify');
+```
 
 
 
@@ -26,9 +27,6 @@ Plugin::load('Cakeminify');
 config your asset resource, create a config file named
 minify.php in config directory。
 or use Cake/Configure class to set minify configuration in bootstrap.php
-
-```php
-Plugin::load('Cakeminify');
 
 
 ```php
