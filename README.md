@@ -14,10 +14,22 @@ composer require dariob/minicake
 
 ```
 
+Load plugin in bootstrap.php
+
+```php
+Plugin::load('Cakeminify');
+
+
+
 ##Config
 
-config your asset resource,create a config file named
+config your asset resource, create a config file named
 minify.php in config directory。
+or use Cake/Configure class to set minify configuration in bootstrap.php
+
+```php
+Plugin::load('Cakeminify');
+
 
 ```php
 return[
