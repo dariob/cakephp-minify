@@ -1,5 +1,5 @@
 {
-    "name": "dariob/cakeminify",
+    "name": "dariob/minicake",
     "description": "Cakeminify plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
