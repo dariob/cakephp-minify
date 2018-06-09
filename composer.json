@@ -1,5 +1,5 @@
 {
-    "name": "visonforcoding/cakeminify",
+    "name": "dariob/cakeminify",
     "description": "Cakeminify plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
