@@ -28,13 +28,18 @@ class MinifyHelper extends Helper {
         $js_desc = \Cake\Core\Configure::read('minjs.desc');
         $output = '';
         if ($debug) {
-            $output .= $this->Html->css($css_source);
-            $output .= $this->Html->script($js_source);
+            $css = str_replace('%5C', '/', $this->Html->css($css_source));
+            $js = str_replace('%5C', '/', $this->Html->script($js_source, ['once' => false]));
         } else {
-            $output .= $this->Html->css($css_desc);
-            $output .= $this->Html->script($js_desc);
+            $css = str_replace('%5C', '/', $this->Html->css($css_desc));
+            $js = str_replace('%5C', '/', $this->Html->script($js_desc, ['once' => FALSE]));
         }
-        return $output;
+
+        if ($config == 'css') {
+            return $css;
+        } elseif ($config == 'js') {
+            return $js;
+        }
     }
 
     /**
@@ -44,6 +49,7 @@ class MinifyHelper extends Helper {
      * @param bool $minify 是否压缩
      */
     public function outputCss($css, $output, $minify = true) {
+
         $debug = \Cake\Core\Configure::read('debug');
         if ($debug) {
             return $this->Html->css($css);
@@ -62,6 +68,7 @@ class MinifyHelper extends Helper {
             $minifier->add(WWW_ROOT . substr($v, 1));
         }
         $minifier->minify(WWW_ROOT . substr($output, 1));
+
         return $this->Html->css($output);
     }
 
